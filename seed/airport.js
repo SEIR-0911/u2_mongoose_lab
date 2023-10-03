@@ -1,6 +1,6 @@
 const db = require('../db')
 // const Chance = require('chance')
-const { Airport,Flight} = require('../models')
+const { Airport} = require('../models')
 db.on('error', console.error.bind(console, 'MongoDB connection error:'))
 const createAirport = async () => {
     const airports = [
