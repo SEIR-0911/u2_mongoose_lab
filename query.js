@@ -14,7 +14,8 @@ const findAllFlights = async () => {
 const run = async () => {
     try {
         await findAllAirports()
-        await findAllFlights()
+        //  await findAllFlights()
+     
     } catch (error) {
         console.log(error)
     } finally {
