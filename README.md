@@ -10,6 +10,8 @@ You'll begin by creating a `mongoose-flights` project using our usual commands (
 ```sh
 npm init -y
 npm i mongoose
+mkdir db models seed
+touch db/index.js models/{user,task,index}.js seed/tasksUsers.js query.js
 ```
 
 What folders and files we will we need to create as well?
