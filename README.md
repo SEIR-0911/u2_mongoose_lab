@@ -49,15 +49,138 @@ What folders and files we will we need to create as well?
 
 5. Implement the following User Stories:
 	- As A User (AAU), I want to view a list of all flights and airports (`index` functionality) that displays each flight's airline, airport, flight no., and departure date/time (consider formatting the `departs` property).
+
+	    <!-- const findAllFlights = async () => {
+        const flights = await Flight.find()
+        console.log('All flights', flights)
+      }
+      const findAllAirports = async () => {
+        const airports = await Airport.find()
+        console.log('All airports:', airports)
+      }
+      const run = async () => {
+        try {
+            await findAllFlights()
+            await findAllAirports()
+        } catch (error) {
+          console.log(error)
+        } finally {
+          await db.close()
+        } -->
 	
 	- AAU, I want to be able to access the details for each of these objects via a Show route based on the object's ID
 
+
+    <!-- const db = require('./db')
+	const { Flight, Airport } = require('./models')
+	
+	db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+
+	const findAllAirports = async (code) => {
+        const airport =  await Airport.find(code)
+        console.log(airport)
+    }
+    const findAllFlights = async (flightNumber) => {
+        const flight = await Flight.find.findById(flightNumber).populate('departing_airport_id').populate('arrival_airport_id')
+            console.log(flight)
+    }
+
+    const run = async () => {
+        try {
+            await findAllFlights()
+            await findAllAirports()
+        } catch (error) {
+          console.log(error)
+        } finally {
+          await db.close()
+        }
+
+	}
+	run() -->
+
+
+
 	- AAU, I want to create flights by entering the information for Airports and Flights using a Query.js file that you will create
+	<!-- 
+	const db = require('./db')
+	const { Flight, Airport } = require('./models')
+
+
+	const createFlights = async () => {
+		const flights = [
+				airline:  'Airline name',
+				flight number:	'Flight number as numebr',
+				price:	'Price as number',
+				numberOfSeats: 'Amount of seats as number',
+				departingAirport:	'departing_airport_id',
+				arrivalAirport: 'arrival_airport_id',
+				departure_date_time: '<YYYY-mm-ddTHH:MM:ss>'
+				]
+			})
+		})
+		await Flight.insertMany(flights)
+		console.log('Created Flights!')
+		return flights
+	} 
+	const createFlightsWithAirports = async (airports) => {
+    console.log(airports)
+    let lenOfItems = 100
+    const airports = [
+            name: 'Airport Name',
+            location: 'Airport location',
+            code: 'Airport code',
+            
+        }
+    })
+		await Flight.insertMany(flights)
+		console.log('Created Flights!')
+	}
+
+	const run = async () => {
+		const airports = await createAirports()
+		await createFlightsWithAirports(airports)
+		db.close()
+	}
+
+	run()
+	-->
+
+
+
 	
 	- AAU, I want to be able to update the details for my Flights and Airports
-	
+	<!-- const updateFlights = async () => {
+	const updatedFlight = await Flight.updateOne(
+	[
+					{airline:  'Airline name'},
+					{flight number:	'Flight number as numebr'},
+					{departure_date_time: '<YYYY-mm-ddTHH:MM:ss>'}
+					]
+	)
+	console.log(updated)
+	}
+	const updateAirports = async () => {
+	const updatedAirport = await Airport.updateOne(
+		{ name: 'New Airport Name' },
+		{ code: 'New Airport code' }
+	)
+	console.log(updated)
+	}
+		 -->
 	- AAU, I want to be able to delete any Flight and Airport
-	
+	<!--const deleteFlights = async () => {
+		const deleteFlight = await Flight.deleteOne({ flightNumber:  717  })
+		console.log(deleted)
+		}
+		const deleteAirports = async () => {
+		const deletedAirport = await Airport.deleteOne({ name: 'Airport Name' })
+		console.log(deleted)
+		}
+			-->
+
+
+
+
 
 #### Hints:
 
