@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "chance": "^1.1.11",
     "mongoose": "^7.5.3"
   }
 }

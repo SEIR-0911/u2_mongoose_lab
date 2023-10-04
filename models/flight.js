@@ -7,9 +7,8 @@ const Flight = new Schema(
         numberOfSeats: { type: Number, required: true },
         departingAirport: { type: Schema.Types.ObjectId, ref: 'Airport' },
         arrivalAirport: { type: Schema.Types.ObjectId, ref: 'Airport' },
-        departingDateTime: { type: Date, required: true }, //
-        arrivalDateTime: { type: Date, required: true } //
-        //https://stackoverflow.com/questions/33791714/data-type-to-store-time-with-mongoose
+        departingDateTime: { type: Date, required: true }, 
+        arrivalDateTime: { type: Date, required: true } 
     },
     { timestamps: true }
 )

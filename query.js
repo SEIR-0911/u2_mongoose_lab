@@ -11,11 +11,16 @@ const findAllFlights = async () => {
     console.log('All flights:', flights)
 }
 
+const findMyFlight = async () => {
+    const myflights = await Flight.find({ "departingAirport": "651c9c0095914fdb38ae4fef" })
+    console.log('All flights:', myflights)
+}
+
 const run = async () => {
     try {
-        await findAllAirports()
+        await findMyFlight()
         //  await findAllFlights()
-     
+
     } catch (error) {
         console.log(error)
     } finally {
