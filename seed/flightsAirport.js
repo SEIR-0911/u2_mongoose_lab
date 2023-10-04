@@ -13,7 +13,7 @@ const createFlights = async () => {
             airline: chance.company(),
             flightNumber: chance.integer({ min: 1000}, { max: 4000 }),
             price: chance.dollar({ min: 1000}, { max: 3000 }),
-            numberOfSeats: chance.integer({ min: 0}, {max: 100 }),
+            numberOfSeats: chance.integer({ min: 0}, {max: 10 }),
             departingAirport: chance.name(),
             arrivalAirport: chance.name(),
             departureDateTime: chance.timestamp(),

@@ -8,7 +8,7 @@ const Airport = new Schema (
         
         //because the parent contains the Child it does not need _id
         //when the Child contained the Parent it did need the _id
-        flights: [{ type: Schema.Types.ObjectId, ref: 'flight_id' }]
+        flights: [{ type: Schema.Types.ObjectId, ref: 'Flight' }]
     },
     {timestamps: true}
 )
