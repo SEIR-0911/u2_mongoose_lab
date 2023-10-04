@@ -42,16 +42,37 @@ const createFLight = async (a_line, flightNum, currency, seatNum, dAirportName, 
             departureDate: new Date(departDate)
         }
     )
-    await Flight.create(newFlight) // apparently this is not a function???
+    await Flight.create(newFlight) 
     console.log(newFlight)
 }
 
 // Update the details for my Flights and Airports
 
-
+const updateFlight = async (a_line, flightNum, currency, seatNum, dAirportName, aAirportName, departDate) => {
+    const revisedFLight = (
+        {
+            airline: a_line,
+            flightNumber: flightNum,
+            price: currency,
+            numberOfSeats: seatNum,
+            departingAirport: await Airport.findOne({ name: dAirportName._id }),
+            arrivalAirport:  await Airport.findOne({ name: aAirportName._id }),
+            departureDate: new Date(departDate)
+        }
+    )
+        //There's no way that a ridiculous function with eight different perameters, that makes you input info for fields you might not even want to change, is how to do this...
+}
 
 // Delete any Flight and Airport
+const deleteFlight = async (idNum) => {
+    const del = await Flight.deleteOne({_id: `${idNum}` })
+    console.log(del)
+}
 
+const deleteAirport = async (idNum) => {
+    const del = await Airport.deleteOne({_id: `${idNum}` })
+    console.log(del)
+}
 
 //run function:
 
@@ -59,7 +80,8 @@ const run = async () => {
     try{
         //await viewData()
         //await flightById('651cafa32425b23c57690363')
-        await createFLight('Pat-Lines', 124, 200, 4, 'Pineappleport', 'Big Rock', 2023-2-1)
+        //await createFLight('Pat-Lines', 124, 200, 4, 'Pineappleport', 'Big Rock', 2023-2-1)
+        //await deleteFlight(`651df88459f04b5123eeb36b`)
     } catch (error){
         console.log(error)
     } finally {
