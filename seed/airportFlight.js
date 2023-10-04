@@ -3,7 +3,7 @@
 // import the db connection
 const db = require("../db")
 
-// import the airport and flight models from model
+// import the Airport and Flight models from model
 const { Airport, Flight } = require("../models")
 
 // errors
@@ -46,5 +46,7 @@ const run = async () => {
     db.close()
 }
 
+module.exports = AirportFlight
 // call function
 run()
+
