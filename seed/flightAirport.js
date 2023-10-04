@@ -1,14 +1,14 @@
-const db = require('../db')
-const Chance = require('chance')
-const { Airport, Flight } = require('../models')
+const db = require('../db');
+const Chance = require('chance');
+const { Airport, Flight } = require('../models');
 const chance = new Chance();
-db.on('error', console.error.bind(console, 'MongoDB connection error:'))
+db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 let airports;
 const airportCodes = [
   'ATL', 'LAX', 'ORD', 'DFW', 'DEN', 'JFK', 'SFO', 'SEA',
   'LAS', 'MCO', 'EWR', 'CLT', 'PHX', 'IAH', 'MIA', 'BOS',
-]
+];
 
 const createAirport = async () => {
   airports = [...Array(7)].map(() => {
@@ -16,12 +16,12 @@ const createAirport = async () => {
       name: chance.name(),
       location: chance.address(),
       code: chance.pickone(airportCodes)
-    })
-  })
+    });
+  });
 
-  airport = await Airport.insertMany(airports)
-  console.log(airport)
-}
+  let airport = await Airport.insertMany(airports);
+  console.log(airport);
+};
 
 const createFlight = async () => {
   const flights = [...Array(7)].map(() => {
@@ -34,17 +34,24 @@ const createFlight = async () => {
       arrivalDateTime: chance.date(),
       arrivalAirport: chance.pickone(airports)._id,
       departingAirport: chance.pickone(airports)._id
-    })
-  })
+    });
+  });
 
   let createdFlights = await Flight.insertMany(flights);
-  console.log(createdFlights)
-}
+  console.log(createdFlights);
+};
 
 const run = async () => {
-  await createAirport()
-  await createFlight()
-  db.close()
-}
+  await createAirport();
+  await createFlight();
+  
+  //if need to clean up
+  // let myAirport = await Airport.deleteMany();
+  // let myFlights = await Flight.deleteMany();
+  // console.log(myAirport);
+  // console.log(myFlights);
 
-run()
+  db.close();
+};
+
+run();
