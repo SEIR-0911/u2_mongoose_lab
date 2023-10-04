@@ -8,6 +8,8 @@ db.on('error', console.error.bind(console, 'mongoDB connection error'))
 //async functions b/c we are taking a detour out of JS and into Mongo; waiting won't throw things out of order.
 
 const main = async () => {
+  await Flight.deleteMany({})
+
     const dfwAirport = await Airport.find({ name: 'Dallas Fort Worth International Airport'})
     const ausAirport= await Airport.find({name: 'Austin Bergstrom International Airport'})
     const dalAirport = await Airport.find({name: 'Dallas Love Field'})
