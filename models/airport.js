@@ -1,12 +1,14 @@
+//Create a Model of Airport with the following properties:
+
 const { Schema } = require('mongoose')
 
 const Airport = new Schema(
   {
-    Name: { type: String, required: true },
-    Location: { type: String, required: true },
-    Code: { type: String, required: true },
+    name: { type: String, required: true },
+    location: { type: String, required: true },
+    code: { type: String, required: true },
      },
   { timestamps: true }
 )
 
-module.exports = Book
+module.exports = Airport

@@ -1,4 +1,6 @@
-const Airport = require('mongoose')
+//Populate your db/index.js file that connects to a database, we can call it "flightsDatabase".
+
+const mongoose = require('mongoose')
 
 
 mongoose

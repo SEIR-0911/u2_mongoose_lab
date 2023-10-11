@@ -1,10 +1,11 @@
 const mongoose = require('mongoose')
-const BookSchema = require('./book')
-const PublisherSchema = require('./publisher')
+const AirportSchema = require('./airport')
+const FlightSchema = require('./flight')
 
-const Book = mongoose.model('Book', BookSchema)
-const Publisher = mongoose.model('Publisher', PublisherSchema)
+const Airport = mongoose.model('Airport', AirportSchema)
+const Flight = mongoose.model('Flight', FlightSchema)
 
 module.exports = {
-    Book,
-    Publisher
+    Airport,
+    Flight
+}
