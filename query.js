@@ -1,49 +1,54 @@
-// // Write your queries here
+// Write your queries here
 
-// const db = require('./db')
-// const { Book, Publisher } = require('./models')
+const db = require('./db')
+const { Airport, Flights } = require('./models')
 
-// const findBook = async () => {
-//   const books = await Book.findOne()
-//   console.log(books)
-// }
+const findflight = async () => {
+  const flight = await Flight.findOne()
+  console.log(flights)
+}
 
-// const createBook = async () => {
-//   const publisher = await Publisher.findOne()
+const createFlight = async () => {
+  const airport = await Airport.findOne()
 
-//   let book = await Book.create({
-//       title: 'Brothers Karamazov',
-//       author: 'Fyodor Dostoyevsky',
-//       published_date: '1879-08-02',
-//       publisher_id: publisher._id
-//   })
-//   console.log(book)
-// }
+  let flight = await Flight.create({
+      airline: 'viva',
+      flight_number: '5050',
+      numberOfSeats: '100',
+      departureDateTime: "2023-10-05",
+      airport_id: airport._id
+  })
+  console.log(flight)
+}
 
-// const updateBook = async () => {
-//   const updated = await Book.updateOne(
-//       { title: 'Harry Potter' },
-//       { published_date: '1880-08-02' }
-//   )
-//   console.log(updated)
-// }
+const updateFlight = async () => {
+  const updated = await Flight.updateOne({
+      airline: 'viva',
+      flight_number: '6800',
+      numberOfSeats: '200',
+      departureDateTime: "2023-10-10",
+      airport_id: airport._id
+  }
+  )
+  console.log(updated)
+}
 
-// const deleteBook = async () => {
-//   let deleted = await Book.deleteOne({ title: 'Brothers Karamazov' })
-//   console.log(deleted)
-// }
+const deleteFlight = async () => {
+  let deleted = await Flight.deleteOne({ flight_number: '5050' })
+  console.log(deleted)
+}
 
-// async function main() {
-//   try {
-//       await findBook()
-//       await createBook()
-//       await updateBook()
-//       await deleteBook()
-//   } catch (error) {
-//       console.log(error)
-//   } finally {
-//       await db.close()
-//   }
-// }
+async function main() {
+  try {
+      await findFlight()
+      await createFlight()
+      await updateFlight()
+      await deleteFlight()
+  } catch (error) {
+      console.log(error)
+  } finally {
+      await db.close()
+  }
+}
 
-// main()
+main()
