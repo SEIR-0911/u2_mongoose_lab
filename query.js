@@ -12,7 +12,7 @@ const { flight, airport } = require("./model");
 //   }
 // }
 
-//
+// /
 async function main() {
   try {
     const findFlight = async () => {
